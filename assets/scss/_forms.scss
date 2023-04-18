@@ -1,0 +1,221 @@
+/*-----------------------------FORMS*/
+.form {
+   position: relative;
+}
+
+.label {
+   display: block;
+   position: relative;
+   margin-top: 46px;
+   text-align: left;
+}
+
+.label:first-child {
+   margin-top: 0px;
+}
+
+.label__text {
+   display: inline-block;
+   height: auto;
+   position: absolute;
+   left: 14px;
+   bottom: 100%;
+   transform: translateY(0px);
+   font-size: 16px;
+   line-height: 1.4;
+   font-weight: 500;
+   color: var(--black);
+   user-select: none;
+}
+
+/*input text & textarea*/
+.input {
+   display: inline-block;
+   width: 100%;
+   font-size: 16px;
+   line-height: 1.25;
+   padding: 13px 14px;
+   background: #ffffff;
+   outline: none;
+   box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.15);
+   border: 1px solid var(--yellou);
+   border-radius: 30px;
+   color: var(--black);
+   transition: border 250ms var(--cubic);
+   &.input--icon {
+      padding-left: 40px;
+   }
+   &.red {
+      border: 1px solid var(--red) !important;
+      color: var(--red);
+      + .label__icon {
+         fill: var(--red) !important;
+      }
+   }
+   &::placeholder {
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 400;
+      color: var(--placeholder);
+      transition: opacity 250ms var(--cubic);
+      opacity: 1;
+   }
+   &:focus {
+      border: 1px solid var(--green);
+      &::placeholder {
+         opacity: 0;
+      }
+      + .label__icon {
+         fill: var(--green);
+      }
+   }
+   &.valid {
+      border: 1px solid var(--green);
+      + .label__icon {
+         fill: var(--green);
+      }
+   }
+   &:-webkit-autofill {
+      box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.15) !important;
+      -webkit-text-fill-color: var(--black) !important;
+      color: var(--black) !important;
+   }
+}
+
+.label__icon {
+   display: block;
+   position: absolute;
+   left: 16px;
+   top: 50%;
+   transform: translateY(-50%);
+   fill: var(--placeholder);
+   transition: fill 250ms var(--cubic);
+}
+
+// .input--icon.red + .label__icon {
+//    fill: var(--red);
+// }
+// .input--icon:focus + .label__icon,
+// .input--icon:valid + .label__icon {
+//    fill: var(--green);
+// }
+
+/*textarea*/
+.input--textarea {
+   display: block;
+   height: 120px;
+   resize: none;
+   line-height: 1.2;
+}
+
+/*checkbox and radio*/
+.fieldset {
+   display: flex;
+   flex-wrap: wrap;
+   position: relative;
+   margin-top: 24px;
+   align-items: center;
+   gap: 20px;
+   .label {
+      margin: 0;
+      width: auto;
+   }
+   .label__text {
+      display: block;
+      position: relative;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.1;
+      color: var(--black);
+      left: 0px;
+      bottom: 0;
+      padding: 1px 0px 1px 24px;
+      transform: translateY(0px);
+      cursor: pointer;
+      &:after {
+         content: '';
+         display: block;
+         width: 16px;
+         height: 16px;
+         background: var(--white);
+         background-origin: border-box;
+         border-radius: 2px;
+         position: absolute;
+         box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.2);
+         left: 0px;
+         top: 0px;
+         cursor: pointer;
+         transition: 250ms var(--cubic);
+      }
+   }
+}
+
+.fieldset.fieldset--radio .label__text:after {
+   border-radius: 20px;
+}
+
+.checkbox,
+.radio {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   border: 0;
+   padding: 0;
+   clip: rect(0 0 0 0);
+   overflow: hidden;
+   &:checked {
+      + .label__text:after {
+         border: 1px solid var(--green) !important;
+         background: var(--green);
+      }
+   }
+   &.red {
+      + .label__text:after {
+         border: 1px solid var(--red);
+      }
+   }
+}
+
+.checkbox__icon,
+.radio__icon {
+   display: block;
+   position: absolute;
+   left: 0px;
+   top: 0px;
+   z-index: 2;
+   opacity: 0;
+   cursor: pointer;
+   transition: opacity 250ms var(--cubic);
+}
+
+.checkbox:checked ~ .checkbox__icon,
+.radio:checked ~ .radio__icon {
+   opacity: 1;
+}
+
+.label__error {
+   display: inline-flex;
+   flex-wrap: wrap;
+   align-items: center;
+   position: absolute;
+   top: 104%;
+   left: 14px;
+   font-size: 13px;
+   line-height: 18px;
+   color: var(--red);
+   svg {
+      position: relative;
+      width: 12px;
+      left: 0px;
+      top: -1px;
+      transform: translateY(0%);
+      fill: currentColor;
+      margin-right: 4px;
+   }
+}
+
+textarea + .label__error {
+   position: relative;
+   top: 0%;
+}
