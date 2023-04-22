@@ -146,10 +146,7 @@ function checkForm(formId) {
          if (addErrorText === true) {
             let errors = correntLabel.querySelectorAll('.label__error').length;
             if (errors < 1) {
-               correntLabel.insertAdjacentHTML(
-                  'beforeend',
-                  '<div class="label__error"><svg width="14" height="14" class="label__icon"><use href="./assets/img/icons.svg#alert"></use></svg>' + text + '</div>'
-               );
+               correntLabel.insertAdjacentHTML('beforeend', '<div class="label__error">' + text + '</div>');
             }
          }
          checkerFalse();

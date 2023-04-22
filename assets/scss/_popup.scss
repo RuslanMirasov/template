@@ -60,9 +60,9 @@
       height: auto;
       text-align: center;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
-      border-radius: 30px;
-      background: var(--yellou);
-      padding: 32px;
+      border-radius: 20px;
+      background: #fff;
+      padding: 40px 30px;
       opacity: 1;
       user-select: none;
       transform: translate(0px, 0px);
@@ -84,21 +84,35 @@
    top: 12px;
    justify-content: center;
    align-items: center;
-   width: 32px;
-   height: 32px;
-   border-radius: 32px;
-   background: #fff;
+   width: 30px;
+   height: 30px;
+   border-radius: 30px;
+   border: 1px solid #000;
    color: var(--black);
    cursor: pointer;
    outline: none;
-   transition: background 250ms var(--cubic);
+   transition: 350ms var(--cubic);
+   transform: rotate(0deg);
+   will-change: transform;
+   &:before,
+   &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 50%;
+      height: 2px;
+      background: #000;
+   }
+   &:before {
+      transform: rotate(45deg);
+   }
+   &:after {
+      transform: rotate(-45deg);
+   }
    &:hover,
    &:focus,
    &:active {
-      background: var(--lime);
-   }
-   svg {
-      fill: currentColor;
+      transform: rotate(90deg);
    }
 }
 
@@ -133,9 +147,9 @@
          height: 60%;
          left: 20%;
          top: 20%;
-         border-top: 3px solid var(--yellou);
-         border-left: 3px solid var(--yellou);
-         border-right: 3px solid var(--yellou);
+         border-top: 3px solid #ffffff;
+         border-left: 3px solid #ffffff;
+         border-right: 3px solid #ffffff;
          border-bottom: 3px solid rgba(0, 0, 0, 0);
          border-radius: 100px;
          animation: 800ms linear 0s infinite rotate;

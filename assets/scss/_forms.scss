@@ -6,7 +6,7 @@
 .label {
    display: block;
    position: relative;
-   margin-top: 46px;
+   margin-top: 20px;
    text-align: left;
 }
 
@@ -17,14 +17,10 @@
 .label__text {
    display: inline-block;
    height: auto;
-   position: absolute;
-   left: 14px;
-   bottom: 100%;
-   transform: translateY(0px);
+   position: relative;
    font-size: 16px;
-   line-height: 1.4;
-   font-weight: 500;
-   color: var(--black);
+   margin-bottom: 6px;
+   color: #000;
    user-select: none;
 }
 
@@ -32,15 +28,14 @@
 .input {
    display: inline-block;
    width: 100%;
+   height: 60px;
    font-size: 16px;
    line-height: 1.25;
-   padding: 13px 14px;
+   padding: 0px 20px;
    background: #ffffff;
+   border: 1px solid #000000;
+   color: #000000;
    outline: none;
-   box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.15);
-   border: 1px solid var(--yellou);
-   border-radius: 30px;
-   color: var(--black);
    transition: border 250ms var(--cubic);
    &.input--icon {
       padding-left: 40px;
@@ -61,24 +56,24 @@
       opacity: 1;
    }
    &:focus {
-      border: 1px solid var(--green);
+      border: 1px solid rgb(50, 156, 50);
       &::placeholder {
          opacity: 0;
       }
       + .label__icon {
-         fill: var(--green);
+         fill: rgb(50, 156, 50);
       }
    }
    &.valid {
-      border: 1px solid var(--green);
+      border: 1px solid rgb(50, 156, 50);
       + .label__icon {
-         fill: var(--green);
+         fill: rgb(50, 156, 50);
       }
    }
    &:-webkit-autofill {
       box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.15) !important;
-      -webkit-text-fill-color: var(--black) !important;
-      color: var(--black) !important;
+      -webkit-text-fill-color: #000000 !important;
+      color: #000000 !important;
    }
 }
 
@@ -105,7 +100,6 @@
    display: block;
    height: 120px;
    resize: none;
-   line-height: 1.2;
 }
 
 /*checkbox and radio*/
@@ -198,11 +192,12 @@
    display: inline-flex;
    flex-wrap: wrap;
    align-items: center;
-   position: absolute;
-   top: 104%;
-   left: 14px;
-   font-size: 13px;
-   line-height: 18px;
+   position: relative;
+   top: 0px;
+   left: 0px;
+   font-size: 12px;
+   line-height: 16px;
+   margin-top: 4px;
    color: var(--red);
    svg {
       position: relative;

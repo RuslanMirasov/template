@@ -70,6 +70,9 @@ function popup(id, subject, title, subtitle, btn) {
 function popupClose() {
    allPopups.forEach(popup => {
       popup.classList.add('is-hidden');
+      setTimeout(function () {
+         popup.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      }, 300);
    });
 }
 
