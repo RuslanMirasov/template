@@ -12,7 +12,7 @@
    visibility: visible;
    pointer-events: all;
    z-index: 9999;
-   background: var(--grey);
+   background: #eee;
    transition: opacity 600ms var(--cubic), visibility 600ms var(--cubic);
    &.is--hidden {
       opacity: 0;
@@ -32,8 +32,6 @@
    p {
       position: relative;
       font-size: 58px;
-      line-height: 1;
-      font-weight: 700;
       z-index: 2;
    }
    .preloader__svg {
@@ -46,6 +44,6 @@
       left: 0;
       bottom: 0;
       transition: width 250ms var(--cubic) 0s;
-      background: var(--yellou);
+      background: lime;
    }
 }

@@ -1,6 +1,5 @@
 'use strict';
 const responsiveSliders = document.querySelectorAll('.responsiveSlider');
-let autoplay_run = false;
 
 responsiveSliders_init();
 
@@ -8,6 +7,7 @@ responsiveSliders_init();
 function responsiveSliders_init() {
    if (responsiveSliders.length > 0) {
       responsiveSliders.forEach(slider => {
+         let autoplay_run = false;
          if (slider.dataset.autoplay > 0) {
             autoplay_run = true;
          }
