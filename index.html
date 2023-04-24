@@ -77,20 +77,45 @@
                         <span class="label__text">Email</span>
                         <input type="email" class="input" name="email" placeholder="example@gmail.com" required />
                      </label>
+                     <!-- checkbox -->
                      <fieldset class="fieldset">
+                        <legend class="fieldset__title">Select your skills</legend>
                         <label class="label label--checkbox">
-                           <span class="label__text">sdsdsd</span>
-                           <input type="checkbox" name="checkbox1" class="checkbox" value="" />
+                           <input type="checkbox" name="checkbox1" class="checkbox" value="Javascript" required />
+                           <span class="label__text">Javascript</span>
                         </label>
                         <label class="label label--checkbox">
-                           <span class="label__text">sdsdsd</span>
-                           <input type="checkbox" name="checkbox1" class="checkbox" value="" />
+                           <input type="checkbox" name="checkbox1" class="checkbox" value="HTML" required />
+                           <span class="label__text">HTML</span>
+                        </label>
+                        <label class="label label--checkbox">
+                           <input type="checkbox" name="checkbox1" class="checkbox" value="CSS" />
+                           <span class="label__text">CSS</span>
+                        </label>
+                     </fieldset>
+                     <!-- radio -->
+                     <fieldset class="fieldset">
+                        <legend class="fieldset__title">Sex</legend>
+                        <label class="label label--radio">
+                           <input type="radio" name="sex" class="radio" value="Male" />
+                           <span class="label__text">Male</span>
+                        </label>
+                        <label class="label label--radio">
+                           <input type="radio" name="sex" class="radio" value="Female" />
+                           <span class="label__text">Female</span>
                         </label>
                      </fieldset>
                      <!-- submit -->
                      <div class="label">
-                        <button type="submit" class="button button--border medium button--submit">Send</button>
+                        <button type="submit" class="button button--border medium button--submit" disabled>Send</button>
                      </div>
+                     <!-- agree -->
+                     <fieldset class="fieldset">
+                        <label class="label label--checkbox full">
+                           <input type="checkbox" name="agree" class="checkbox agree" value="agree" />
+                           <span class="label__text">By clicking submit, you agree to our privacy policy</span>
+                        </label>
+                     </fieldset>
                   </form>
                </div>
             </div>

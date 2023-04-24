@@ -478,7 +478,8 @@
   margin-top: 0px;
 }
 
-.label__text {
+.label__text,
+.fieldset__title {
   display: inline-block;
   height: auto;
   position: relative;
@@ -592,42 +593,58 @@
   position: relative;
   margin-top: 24px;
   align-items: center;
-  gap: 20px;
+  gap: 20px 30px;
+}
+.fieldset .fieldset__title {
+  margin-bottom: 14px;
 }
 .fieldset .label {
   margin: 0;
-  width: auto;
+}
+.fieldset .label.full {
+  width: 100%;
 }
 .fieldset .label__text {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   position: relative;
-  font-weight: 400;
   font-size: 14px;
-  line-height: 1.1;
+  line-height: 20px;
+  margin-bottom: 0px;
   color: var(--black);
-  left: 0px;
-  bottom: 0;
-  padding: 1px 0px 1px 24px;
   transform: translateY(0px);
   cursor: pointer;
+}
+.fieldset .label__text:before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  left: 0px;
+  top: 0px;
+  cursor: pointer;
+  border: 1px solid var(--black);
+  transition: 250ms var(--cubic);
 }
 .fieldset .label__text:after {
   content: "";
   display: block;
-  width: 16px;
-  height: 16px;
-  background: var(--white);
-  background-origin: border-box;
-  border-radius: 2px;
   position: absolute;
-  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 20px;
+  height: 20px;
   left: 0px;
   top: 0px;
   cursor: pointer;
+  background: green;
+  transform: scale(0);
   transition: 250ms var(--cubic);
 }
 
-.fieldset.fieldset--radio .label__text:after {
+.fieldset .label--radio .label__text:before,
+.fieldset .label--radio .label__text:after {
   border-radius: 20px;
 }
 
@@ -642,31 +659,17 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+.checkbox:checked + .label__text:before,
+.radio:checked + .label__text:before {
+  border: 1px solid green;
+}
 .checkbox:checked + .label__text:after,
 .radio:checked + .label__text:after {
-  border: 1px solid var(--green) !important;
-  background: var(--green);
+  transform: scale(0.6);
 }
-.checkbox.red + .label__text:after,
-.radio.red + .label__text:after {
+.checkbox.red + .label__text:before,
+.radio.red + .label__text:before {
   border: 1px solid var(--red);
-}
-
-.checkbox__icon,
-.radio__icon {
-  display: block;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 2;
-  opacity: 0;
-  cursor: pointer;
-  transition: opacity 250ms var(--cubic);
-}
-
-.checkbox:checked ~ .checkbox__icon,
-.radio:checked ~ .radio__icon {
-  opacity: 1;
 }
 
 .label__error {
@@ -680,15 +683,6 @@
   line-height: 16px;
   margin-top: 4px;
   color: var(--red);
-}
-.label__error svg {
-  position: relative;
-  width: 12px;
-  left: 0px;
-  top: -1px;
-  transform: translateY(0%);
-  fill: currentColor;
-  margin-right: 4px;
 }
 
 /*-------------------- MODAL POPUP*/

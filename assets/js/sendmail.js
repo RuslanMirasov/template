@@ -3,7 +3,7 @@ const forms = document.querySelectorAll('.form');
 const inputs = document.querySelectorAll('input, textarea');
 const agree = document.querySelectorAll('.agree');
 
-const addErrorText = false;
+const addErrorText = true;
 const minSymbols = 3;
 const errorSymbols = 'Minimum characters!';
 const errorEmptyInput = 'The field must not be empty!';
@@ -45,7 +45,7 @@ inputs.forEach(input => {
 agree.forEach(policy => {
    policy.addEventListener('change', function () {
       let disabled = true;
-      let agree = this.parentNode.parentNode.querySelectorAll('.agree');
+      let agree = this.closest('.form').querySelectorAll('.agree');
       let agreeLength = agree.length;
       let agreeChecked = 0;
       agree.forEach(agree => {
@@ -56,7 +56,7 @@ agree.forEach(policy => {
       if (agreeLength == agreeChecked) {
          disabled = false;
       }
-      this.parentNode.parentNode.querySelector('[type=submit]').disabled = disabled;
+      this.closest('.form').querySelector('[type=submit]').disabled = disabled;
    });
 });
 
