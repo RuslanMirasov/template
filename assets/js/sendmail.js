@@ -3,7 +3,7 @@ const forms = document.querySelectorAll('.form');
 const inputs = document.querySelectorAll('input, textarea');
 const agree = document.querySelectorAll('.agree');
 
-const addErrorText = true;
+const addErrorText = false;
 const minSymbols = 3;
 const errorSymbols = 'Minimum characters!';
 const errorEmptyInput = 'The field must not be empty!';

@@ -87,14 +87,6 @@
    transition: fill 250ms var(--cubic);
 }
 
-// .input--icon.red + .label__icon {
-//    fill: var(--red);
-// }
-// .input--icon:focus + .label__icon,
-// .input--icon:valid + .label__icon {
-//    fill: var(--green);
-// }
-
 /*textarea*/
 .input--textarea {
    display: block;
@@ -208,9 +200,4 @@
       fill: currentColor;
       margin-right: 4px;
    }
-}
-
-textarea + .label__error {
-   position: relative;
-   top: 0%;
 }

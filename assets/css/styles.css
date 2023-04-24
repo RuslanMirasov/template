@@ -405,6 +405,12 @@
   height: 100%;
 }
 
+.formBox {
+  display: block;
+  max-width: 600px;
+  margin: 50px auto;
+}
+
 /*----------------------------------------------- BUTTONS*/
 .forBtn {
   display: flex;
@@ -683,11 +689,6 @@
   transform: translateY(0%);
   fill: currentColor;
   margin-right: 4px;
-}
-
-textarea + .label__error {
-  position: relative;
-  top: 0%;
 }
 
 /*-------------------- MODAL POPUP*/
