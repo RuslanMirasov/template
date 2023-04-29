@@ -97,11 +97,11 @@
                      <fieldset class="fieldset">
                         <legend class="fieldset__title">Sex</legend>
                         <label class="label label--radio">
-                           <input type="radio" name="sex" class="radio" value="Male" />
+                           <input type="radio" name="sex" class="radio" value="Male" required />
                            <span class="label__text">Male</span>
                         </label>
                         <label class="label label--radio">
-                           <input type="radio" name="sex" class="radio" value="Female" />
+                           <input type="radio" name="sex" class="radio" value="Female" required />
                            <span class="label__text">Female</span>
                         </label>
                      </fieldset>
@@ -160,7 +160,7 @@
                   <!-- Phone -->
                   <label class="label">
                      <span class="label__text">Phone number</span>
-                     <input type="tel" class="input" name="phone" placeholder="+38 (0--) --- -- --" required />
+                     <input type="tel" id="phone-input" class="input input--tel" name="phone" placeholder="+38 (0--) --- -- --" required />
                   </label>
                   <!-- Email -->
                   <label class="label">
