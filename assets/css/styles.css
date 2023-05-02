@@ -468,7 +468,8 @@
 }
 
 .label {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
   margin-top: 20px;
   text-align: left;
@@ -606,7 +607,7 @@
 }
 .fieldset .label__text {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100%;
   position: relative;
   font-size: 14px;
@@ -616,31 +617,26 @@
   transform: translateY(0px);
   cursor: pointer;
 }
-.fieldset .label__text:before {
+.fieldset .label__text:before, .fieldset .label__text:after {
   content: "";
   display: block;
-  position: relative;
+  flex-shrink: 0;
   width: 20px;
   height: 20px;
-  margin-right: 10px;
   left: 0px;
   top: 0px;
-  cursor: pointer;
-  border: 1px solid var(--black);
   transition: 250ms var(--cubic);
+  cursor: pointer;
+}
+.fieldset .label__text:before {
+  position: relative;
+  margin-right: 10px;
+  border: 1px solid var(--black);
 }
 .fieldset .label__text:after {
-  content: "";
-  display: block;
   position: absolute;
-  width: 20px;
-  height: 20px;
-  left: 0px;
-  top: 0px;
-  cursor: pointer;
   background: green;
   transform: scale(0);
-  transition: 250ms var(--cubic);
 }
 
 .fieldset .label--radio .label__text:before,
@@ -674,15 +670,22 @@
 
 .label__error {
   display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
   position: relative;
-  top: 0px;
+  overflow: hidden;
+  transform-origin: center top;
+  height: 0px;
   left: 0px;
+  top: 4px;
+  flex-wrap: wrap;
   font-size: 12px;
   line-height: 16px;
-  margin-top: 4px;
   color: var(--red);
+  transition: 250ms var(--cubic);
+  transform: scaleY(0);
+}
+.label__error.active {
+  height: 16px;
+  transform: scaleY(1);
 }
 
 /*-------------------- MODAL POPUP*/

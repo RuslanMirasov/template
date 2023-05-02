@@ -2,6 +2,7 @@
 const forms = document.querySelectorAll('.form');
 const inputs = document.querySelectorAll('input, textarea');
 const agree = document.querySelectorAll('.agree');
+const selectInputs = document.querySelectorAll('.select');
 
 const addErrorText = true;
 const minSymbols = 3;
@@ -12,6 +13,17 @@ const errorEmailInput = 'Wrong E-mail format!';
 const errorPhoneInput = 'Wrong phone format!';
 const errorMinNumber = 'The minimum value is';
 const errorMaxNumber = 'The maximum value is';
+
+selectInputs.forEach(select => {
+   const selectLabel = select.closest('.label--select');
+   const options = select.querySelectorAll('option');
+   selectLabel.insertAdjacentHTML(
+      'beforeend',
+      '<div class="selectInput"><div class="selectInput__result">Начальный</div><div class="selectInput__options">sss</div></div>'
+   );
+   select.value = 'React';
+   console.log(select.value);
+});
 
 inputs.forEach(input => {
    let parentContainer = input.closest('.label');
@@ -25,7 +37,10 @@ inputs.forEach(input => {
       redInputs.forEach(redInput => {
          redInput.classList.remove('red');
          if (addErrorText == true && redInput.closest('.label').querySelector('.label__error') !== null) {
-            redInput.closest('.label').querySelector('.label__error').remove();
+            redInput.closest('.label').querySelector('.label__error').classList.remove('active');
+            setTimeout(function () {
+               redInput.closest('.label').querySelector('.label__error').remove();
+            }, 250);
          }
       });
    });
@@ -147,6 +162,9 @@ function checkForm(formId) {
             let errors = correntLabel.querySelectorAll('.label__error').length;
             if (errors < 1) {
                correntLabel.insertAdjacentHTML('beforeend', '<div class="label__error">' + text + '</div>');
+               setTimeout(function () {
+                  correntLabel.querySelector('.label__error').classList.add('active');
+               }, 5);
             }
          }
          checkerFalse();
@@ -166,10 +184,14 @@ function formsReset() {
    forms.forEach(form => {
       form.reset();
       form.querySelectorAll('.label__error').forEach(errors => {
-         errors.remove();
+         errors.classList.remove('active');
+         setTimeout(function () {
+            errors.remove();
+         }, 250);
       });
       form.querySelectorAll('[required]').forEach(required => {
          required.classList.remove('red');
+         required.classList.remove('valid');
       });
       if (form.querySelectorAll('.agree').length > 0) {
          form.querySelector('[type=submit]').disabled = true;

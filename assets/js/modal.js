@@ -82,6 +82,7 @@ function modalClose() {
    modalBackdrop.classList.add('is-hidden');
    setTimeout(function () {
       scrollbarModify();
+      formsReset();
    }, 300);
 }
 
